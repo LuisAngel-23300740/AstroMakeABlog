@@ -1,7 +1,5 @@
 ---
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
-import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "Acerca de Mi";
 
@@ -23,71 +21,51 @@ const skillWeight = "bold";
 const skillCase = "uppercase";
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{pageTitle}</title>
-    </head>
+<BaseLayout pageTitle={pageTitle}>
+    <style define:vars={{ skillColor, skillWeight, skillCase }}>
+        :global(body h1) {
+            color: purple;
+            font-size: 4rem;
+        }
+        .skill {
+            color: var(--skillColor);
+            font-weight: var(--skillWeight);
+            text-transform: var(--skillCase);
+        }
+    </style>
 
-    <Header />
-
-    <body>
-        <h1>{pageTitle}</h1>
-        <style define:vars={{ skillColor, skillWeight, skillCase }}>
-            h1 {
-                color: purple;
-                font-size: 4rem;
+    <p>Algunos datos sobre mi:</p>
+    <ul>
+        <li>Mi nombre es: {identidad.primerNombre}</li>
+        <li>
+            Vivo en {identidad.pais} y mi ocupacion es ser {
+                identidad.ocupacion
             }
-            .skill {
-                color: var(--skillColor);
-                font-weight: var(--skillWeight);
-                text-transform: var(--skillCase);
-            }
-        </style>
-
-        <p>Algunos datos sobre mi:</p>
-        <ul>
-            <li>Mi nombre es: {identidad.primerNombre}</li>
-            <li>
-                Vivo en {identidad.pais} y mi ocupacion es ser {
-                    identidad.ocupacion
-                }
-            </li>
-            {
-                identidad.hobbies.length >= 2 && (
-                    <li>
-                        Dos de mis hobbies son: {identidad.hobbies[0]} y{" "}
-                        {identidad.hobbies[1]}
-                    </li>
-                )
-            }
-        </ul>
-
-        <p>Mis habilidades son:</p>
-        <ul>
-            {skills.map((skill) => <li class="skill">{skill}</li>)}
-        </ul>
-
-        {happy && <p>Estoy muy feliz de poder usar Astro</p>}
-
-        {finished && <p>He acabado el tutorial</p>}
-
+        </li>
         {
-            goal === 3 ? (
-                <p>Mi objetivo es terminarlo antes de las 8pm de mañana</p>
-            ) : (
-                <p>Mi objetivo no es terminarlo mañana</p>
+            identidad.hobbies.length >= 2 && (
+                <li>
+                    Dos de mis hobbies son: {identidad.hobbies[0]} y{" "}
+                    {identidad.hobbies[1]}
+                </li>
             )
         }
+    </ul>
 
-        <Footer />
+    <p>Mis habilidades son:</p>
+    <ul>
+        {skills.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
 
-        <script>
-            import "../scripts/menu.js";
-        </script>
-    </body>
-</html>
+    {happy && <p>Estoy muy feliz de poder usar Astro</p>}
+
+    {finished && <p>He acabado el tutorial</p>}
+
+    {
+        goal === 3 ? (
+            <p>Mi objetivo es terminarlo antes de las 8pm de mañana</p>
+        ) : (
+            <p>Mi objetivo no es terminarlo mañana</p>
+        )
+    }
+</BaseLayout>

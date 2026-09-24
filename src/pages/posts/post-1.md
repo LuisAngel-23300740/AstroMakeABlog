@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: 'Mi Primer Post'
 pubDate: 2026-09-22
 description: 'Este es el primer post de mi nuevo blog'
@@ -8,10 +9,6 @@ image:
     alt: 'The Astro logo on a dark background with a pink glow.'
 tags: ["astro", "blogging", "learning in public"]
 ---
-# Mi primer post
-
-Publicado el: 22 de septiembre de 2026
-
 Bienvenidos a mi nuevo blog
 
 ## Hola que rollo
