@@ -1,4 +1,8 @@
 ---
+import Footer from '../components/Footer.astro';
+import Navigation from '../components/Navigation.astro';
+import '../styles/global.css';
+
 const pageTitle = "Acerca de Mi";
 
 const identidad = {
@@ -29,9 +33,7 @@ const skillCase = "uppercase";
         <title>{pageTitle}</title>
     </head>
 
-    <a href="/">Home -</a>
-    <a href="/about/">About -</a>
-    <a href="/blog/">Blog</a>
+    <Navigation />
 
     <body>
         <h1>{pageTitle}</h1>
@@ -81,7 +83,7 @@ const skillCase = "uppercase";
                 <p>Mi objetivo no es terminarlo mañana</p>
             )
         }
+
+        <Footer />
     </body>
-
-
 </html>
