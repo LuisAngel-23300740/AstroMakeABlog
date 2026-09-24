@@ -1,8 +1,7 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
-title: 'Mi Tercer Post'
+title: 'Mi Segundo Post'
 pubDate: 2026-09-22
-description: 'Este es el tercer post de mi nuevo blog'
+description: 'Este es el segundo post de mi nuevo blog'
 author: 'Luis'
 image:
     url: 'https://docs.astro.build/assets/rose.webp'
